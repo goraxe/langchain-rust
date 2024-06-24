@@ -109,6 +109,8 @@ impl Claude {
             .map(|c| c.text.clone())
             .unwrap_or_default();
 
+        log::trace!("Response: {:?}", res);
+
         let tokens = Some(TokenUsage {
             prompt_tokens: res.usage.input_tokens,
             completion_tokens: res.usage.output_tokens,
